@@ -11,4 +11,4 @@ plugins {
 }
 
 rootProject.name = "kotlin-gradle-cdk-lambda"
-include("app")
+include("infrastructure", "lambda")
