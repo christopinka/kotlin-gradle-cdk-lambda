@@ -15,11 +15,12 @@ junit5 = "5.10.2"
 # Runtime
 awssdk-bom = { group = "aws.sdk.kotlin", name = "bom", version.ref = "awsSdk" } # Bill-of-Materials
 awssdk-s3 = { group = "aws.sdk.kotlin", name = "s3" }
+lambda-core = {group = "com.amazonaws", name = "aws-lambda-java-core", version.ref="lambdaJavaCore"}
+lambda-events = {group = "com.amazonaws", name = "aws-lambda-java-events", version.ref="lambdaJavaEvents"}
 
 # Test
 junit-5-api = {module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit5"}
 junit-5 = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit5" }
-junit-5-params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "junit5" }
 
 # Infrastructure
 cdk = { module = "software.amazon.awscdk:aws-cdk-lib", version = { strictly = "2.133.0" } }
