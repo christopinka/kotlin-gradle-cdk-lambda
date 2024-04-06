@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo "Hi! This is my custom pre-commit hook."
+echo "Let's try to build the project."
+./gradlew build
+build_status=$?
+if [ $build_status -eq 0 ]; then
+  echo "Great success! Seems like you did a good job after all..."
+  echo "Committing."
+else
+  echo "Build error [$build_status]. Aborting commit"
+  exit $build_status
+fi

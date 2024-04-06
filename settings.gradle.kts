@@ -8,7 +8,15 @@
 plugins {
     // Apply the foojay-resolver plugin to allow automatic download of JDKs
     id("org.gradle.toolchains.foojay-resolver-convention") version "0.7.0"
+    id("org.danilopianini.gradle-pre-commit-git-hooks") version "2.0.3"
 }
 
 rootProject.name = "kotlin-gradle-cdk-lambda"
 include("infrastructure", "lambda")
+
+gitHooks {
+    preCommit {
+        from(file("./custom-hooks/pre-commit"))
+    }
+    createHooks(true)
+}
