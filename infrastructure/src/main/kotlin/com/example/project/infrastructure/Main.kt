@@ -33,8 +33,8 @@ fun getProjectRoot(): String {
 
 class SampleStack(parent: Construct, name: String, props: StackProps, stage: String): Stack(parent, name, props) {
     init {
-        val function = Function(this, "Function", FunctionProps.builder()
-            .functionName("function-$stage")
+        val function = Function(this, "lambda-Function", FunctionProps.builder()
+            .functionName("lambda-function-$stage")
             .runtime(Runtime.JAVA_21)
             .code(Code.fromAsset(getProjectRoot() + "lambda/build/libs/lambda.jar"))
             .handler("com.example.project.lambda.Handler")
@@ -43,11 +43,28 @@ class SampleStack(parent: Construct, name: String, props: StackProps, stage: Str
             .build()
         )
 
-        val restApi = RestApi(this, "Api", RestApiProps.builder().restApiName("api-$stage").build())
-        val lambdaPath = restApi.root.addResource("some_path")
-        lambdaPath.addMethod(
+        val helloEndpoint = RestApi(this, "hello-api", RestApiProps.builder().restApiName("hello-api-$stage").build())
+        val helloEndpointPath = helloEndpoint.root.addResource("hello_path")
+        helloEndpointPath.addMethod(
             "GET",
             LambdaIntegration(function)
+        )
+
+        val torchEltFunction = Function(this, "torch-elt-Function", FunctionProps.builder()
+            .functionName("torch-elt-function-$stage")
+            .runtime(Runtime.JAVA_21)
+            .code(Code.fromAsset(getProjectRoot() + "torch-elt/build/libs/torch-elt.jar"))
+            .handler("com.example.project.lambda.Handler")
+            .memorySize(512)
+            .timeout(Duration.seconds(10))
+            .build()
+        )
+
+        val torchEltEndpoint = RestApi(this, "torch-api", RestApiProps.builder().restApiName("torch-api-$stage").build())
+        val torchEltEndpointPath = torchEltEndpoint.root.addResource("torch_path")
+        torchEltEndpointPath.addMethod(
+            "GET",
+            LambdaIntegration(torchEltFunction)
         )
     }
 }

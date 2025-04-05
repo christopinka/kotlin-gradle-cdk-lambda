@@ -12,7 +12,7 @@ plugins {
 }
 
 rootProject.name = "kotlin-gradle-cdk-lambda"
-include("infrastructure", "lambda")
+include("infrastructure", "lambda", "torch-elt")
 
 gitHooks {
     preCommit {
