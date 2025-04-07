@@ -2,7 +2,8 @@
 
 # Process for interview
 
-I wanted to have a framework for deploying Lambda functions to AWS. 
+I wanted to have a framework for deploying Lambda functions to AWS.
+I wanted to try out the CDK vs. Terraform and other orchestration.
 This fork provides that ability. 
 I've added a second endpoint, see: [torchEltFunction](https://github.com/christopinka/kotlin-gradle-cdk-lambda/blob/1124745be80d6d845bdfd21c703720aacd873b52/infrastructure/src/main/kotlin/com/example/project/infrastructure/Main.kt#L53)
 
