@@ -1,3 +1,15 @@
+# WIP!!
+
+# Process for interview
+
+I wanted to have a framework for deploying Lambda functions to AWS. 
+This fork provides that ability. 
+I've added a second endpoint, see: [torchEltFunction](https://github.com/christopinka/kotlin-gradle-cdk-lambda/blob/1124745be80d6d845bdfd21c703720aacd873b52/infrastructure/src/main/kotlin/com/example/project/infrastructure/Main.kt#L53)
+
+and
+
+[torch handler code](https://github.com/christopinka/kotlin-gradle-cdk-lambda/tree/main/torch-elt)
+
 # Kotlin + Gradle (Kotlin DSL) + AWS CDK + AWS Lambda (Kotlin) Template
 
 Check the Medium [article](https://medium.com/@goradux/how-to-serverless-kotlin-gradle-aws-cdk-aws-lambda-024b2f1f7f06) describing the step-by-step setup.
@@ -20,7 +32,7 @@ You should have this software preinstalled:
 * AWS CDK CLI Toolkit (`npm install -g aws-cdk`);
 * AWS SAM CLI (`brew install aws-sam-cli`);
 * AWS Authentication configured in one way or another in your environment. See best practices ??
-  * AWSCLI -> $`aws config`
+  * AWSCLI -> $`aws config``
 * bootstrap cdk enviroment??
   * `$ cdk bootstrap --trust=450395242735 --cloudformation-execution-policies=arn:aws:iam::aws:policy/AdministratorAccess --verbose --context stage=dev`
 
